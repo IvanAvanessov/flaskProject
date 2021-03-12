@@ -1,0 +1,32 @@
+{% include "header.html" %}
+    <title>Chatchatchat</title>
+
+</head>
+<body>
+<div class="container text-center">
+    <div class="row">
+        <div class="mx-auto mt-5">
+            <button class="btn btn-primary" type="submit" id="createRoom">Create new chatroom</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-auto mt-5">
+            Or enter roomID below<br>
+                <div class="input-group">
+                    <input type="text" id="roomID" name="roomID" class="form-control" placeholder="Room ID">
+                </div>
+                <button class="btn btn-primary mt-1 " type="submit" id="joinRoom" onclick="joinRoom()">Join the room</button>
+        </div>
+    </div>
+    {% if error %}
+    <div class="row">
+        <div class="alert alert-primary" role="alert">
+            {{ errorMessage }}
+        </div>
+    </div>
+    {% endif %}
+</div>
+</body>
+<script src="/static/js/index.js"></script>
+
+</html>
