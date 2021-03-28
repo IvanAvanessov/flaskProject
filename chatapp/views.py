@@ -1,4 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+
+chatapp_url = Blueprint('chatapp', __name__, template_folder='templates')
+
+
 from .models import User
 import os
 from main import db
@@ -7,7 +11,6 @@ from flask_sqlalchemy import SQLAlchemy
 import string, random, config
 from .funcs import create_room
 
-chatapp_url = Blueprint('chatapp', __name__, template_folder='templates')
 
 
 
@@ -30,10 +33,12 @@ def index():
 
 @chatapp_url.route('/', methods=['POST'])
 def create_room_POST():
+    print('Here')
     roomID = create_room()
-    if roomID is not None:
-        return redirect("/")
-    return
+    if roomID:
+        print(roomID)
+        return roomID
+    return 'flase' + roomID
 
 
 @chatapp_url.route('/chatroom', methods=['GET'])
