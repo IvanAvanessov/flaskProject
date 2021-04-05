@@ -2,22 +2,39 @@
     <title>Chatchatchat</title>
 
 </head>
-<body>
-<div class="container text-center">
+<body style="font-size:2rem;">
+<div class="container border text-center">
     <div class="row">
-        <div class="mx-auto mt-5">
-            <button class="btn btn-primary" type="submit" id="createRoom">Create new chatroom</button>
+
+        <div class="col-4 col-sm-11 mx-auto" id="messageContainer" style="height:0">
+
         </div>
+
+    </div>
+
+    <div class="row mt-1">
+
+        <div class="mx-auto mt-5">
+            <button class="btn btn-primary" type="submit" id="createRoom" onclick="create_room()">
+                <h2>Create new chatroom</h2>
+            </button>
+        </div>
+
     </div>
     <div class="row">
+
         <div class="mx-auto mt-5">
-            Or enter roomID below<br>
-                <div class="input-group">
-                    <input type="text" id="roomID" name="roomID" class="form-control" placeholder="Room ID">
+            <h2>Or enter roomID below:</h2>
+                <div class="input-group border">
+                    <input type="text" id="roomID" name="roomID" class="mx-5 form-control" placeholder="Room ID" style="font-size:5rem;">
                 </div>
-                <button class="btn btn-primary mt-1 " type="submit" id="joinRoom" onclick="joinRoom()">Join the room</button>
+                <button class="btn btn-primary mt-1" type="submit" id="joinRoom" onclick="join_room()" style="font-size:3rem;">Join the room</button>
         </div>
+
     </div>
+
+
+
     {% if error %}
     <div class="row">
         <div class="alert alert-primary" role="alert">
@@ -27,6 +44,6 @@
     {% endif %}
 </div>
 </body>
-<script src="/static/js/index.js"></script>
 
+<script src="/chatapp/static/js/index.js"></script>
 </html>

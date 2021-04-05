@@ -22,4 +22,14 @@ def create_room_model(room_name):
         username = db.Column(db.String(100))
         messageTime = db.Column(db.DateTime)
         message = db.Column(db.Text)
+
+        def to_dict(self):
+            return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
     return Room
+
+
+def create_roomUsers_model(Room):
+    class RoomUsers(db.Model):
+        __tablename__ = Room.__tablename__ + '_users'
+        pass
